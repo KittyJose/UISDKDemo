@@ -1,0 +1,9 @@
+div.editor {
+    min-height: 500px;
+    height: auto;
+}
+
+.splits {
+    border-right: 1px solid grey;
+    width: 1400px;
+}

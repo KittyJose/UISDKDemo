@@ -1,0 +1,20 @@
+{
+    "classNames": "bg-dark p-5 border border-success rounded ",
+    "asset_history": {
+        "ui:widget" : "hidden",
+        "ui:description": "I am hiding this asset_history",
+        "ui:options": {
+            "addable": false,
+            "orderable": false,
+            "removable": false
+        }
+    },
+    "asset_identifier": {"ui:widget" : "hidden"},
+    "design_standards": {"ui:widget" : "hidden"},
+    "name": {
+        "classNames": "text-danger fw-bold h4 m-3",
+        "ui:placeholder": "Enter name ..."
+    },
+    "last_maintained" : {"ui:widget": "AltDateWidget"}
+}
+
