@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 const TerminusDBClient = require("@terminusdb/terminusdb-client")
 export const WOQLContext = React.createContext()
 export const WOQLClientObj = () => useContext(WOQLContext)
-import {DATA_PRODUCT} from "./constants"
+import {DATA_PRODUCT, CREATE_PAGE} from "./constants"
 
 export const WOQLClientProvider = ({children, params}) => {
 
@@ -13,6 +13,7 @@ export const WOQLClientProvider = ({children, params}) => {
 
     const [woqlClient, setWoqlClient] = useState(false)
     const [frames, setFrames] = useState(false)
+    const [page, setPage] = useState(CREATE_PAGE)
 
 
     const client = new TerminusDBClient.WOQLClient(`${server}${team}/`, {
@@ -47,7 +48,8 @@ export const WOQLClientProvider = ({children, params}) => {
         <WOQLContext.Provider
             value={{
                 woqlClient,
-                frames
+                frames,
+                setPage
             }}
         >
             {children}

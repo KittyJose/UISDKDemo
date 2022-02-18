@@ -5,139 +5,33 @@
     "@type": "@context"
   },
   {
-    "@id": "DependencyRelation",
+    "@abstract": [],
+    "@id": "Event",
+    "@subdocument": [],
     "@type": "Class",
-    "comment": "xsd:string",
-    "critical": "xsd:boolean",
-    "dependent": "Asset",
-    "depends_on": "Asset"
+    "date": "xsd:dateTime"
   },
   {
-    "@id": "Feature",
-    "@type": "Class",
-    "bbox": {
-      "@class": "xsd:string",
-      "@dimensions": 1,
-      "@type": "Array"
+    "@documentation": {
+      "@comment": "Historical hazard",
+      "@properties": {
+        "comment": "A comment relating to an historic hazard incident.",
+        "date": "The date at which the incident occurred."
+      }
     },
-    "centerline": {
-      "@class": "Geometry",
-      "@type": "Optional"
-    },
-    "geometry": "Geometry",
-    "id": {
-      "@class": "xsd:string",
-      "@type": "Optional"
-    },
-    "properties": "Properties",
-    "title": {
-      "@class": "xsd:string",
-      "@type": "Optional"
-    },
-    "type": "Feature_Type"
-  },
-  {
-    "@id": "FeatureCollection",
-    "@type": "Class",
-    "crs": {
-      "@class": "name",
-      "@type": "Optional"
-    },
-    "features": {
-      "@class": "Feature",
-      "@type": "Set"
-    },
-    "name": {
-      "@class": "xsd:string",
-      "@type": "Optional"
-    },
-    "type": "FeatureCollection_Type"
-  },
-  {
-    "@id": "MultiPolygon_Type",
-    "@type": "Enum",
-    "@value": [
-      "MultiPolygon"
-    ]
-  },
-  {
-    "@id": "OSiProperties",
-    "@inherits": "Properties",
-    "@type": "Class",
-    "NAMN1": "xsd:string",
-    "OBJECTID": "xsd:integer"
-  },
-  {
-    "@id": "Owner",
-    "@type": "Class",
-    "contact_person": "Person",
-    "name": "xsd:string"
-  },
-  {
-    "@id": "Person",
-    "@type": "Class",
-    "email_address": {
-      "@class": "xsd:string",
-      "@type": "Optional"
-    },
-    "first_name": "xsd:string",
-    "job_title": {
-      "@class": "xsd:string",
-      "@type": "Optional"
-    },
-    "last_name": "xsd:string",
-    "organization": {
-      "@class": "xsd:string",
-      "@type": "Optional"
-    },
-    "phone_number": {
-      "@class": "xsd:string",
-      "@type": "Optional"
-    }
-  },
-  {
-    "@id": "SpatialWebIdentifier",
-    "@type": "Class",
-    "id": "xsd:string"
-  },
-  {
-    "@id": "AreaExtent",
+    "@id": "HazardEvent",
+    "@inherits": "Event",
     "@key": {
-      "@type": "ValueHash"
+      "@fields": [
+        "hazard",
+        "date"
+      ],
+      "@type": "Lexical"
     },
     "@subdocument": [],
     "@type": "Class",
-    "perimeter": {
-      "@class": "xsd:integer",
-      "@type": "Optional"
-    }
-  },
-  {
-    "@id": "name",
-    "@type": "Class",
-    "properties": "Properties",
-    "type": "Name_Type"
-  },
-  {
-    "@id": "Area",
-    "@type": "Class",
-    "extent": {
-      "@class": "AreaExtent",
-      "@type": "Optional"
-    },
-    "hazard_history": {
-      "@class": "HazardEvent",
-      "@type": "Set"
-    },
-    "hazards": {
-      "@class": "Hazard",
-      "@type": "Set"
-    },
-    "name": "xsd:string",
-    "population": {
-      "@class": "xsd:integer",
-      "@type": "Optional"
-    }
+    "comment": "xsd:string",
+    "hazard": "Hazard"
   },
   {
     "@id": "Asset",
@@ -149,8 +43,8 @@
     },
     "@type": "Class",
     "asset_history": {
-      "@class": "Event",
-      "@type": "Set"
+      "@class": "Hazard",
+      "@type": "Optional"
     },
     "asset_identifier": "xsd:string",
     "commisioning_date": "xsd:dateTime",
@@ -161,26 +55,38 @@
     "name": "xsd:string"
   },
   {
-    "@id": "Name_Type",
-    "@type": "Enum",
-    "@value": [
-      "name"
-    ]
-  },
-  {
-    "@id": "CRS84",
-    "@inherits": "Properties",
-    "@type": "Class",
-    "name": "CRS84_Type"
-  },
-  {
-    "@abstract": [],
-    "@id": "Geometry",
+    "@id": "Location",
     "@key": {
       "@type": "Random"
     },
     "@subdocument": [],
-    "@type": "Class"
+    "@type": "Class",
+    "city": "xsd:string",
+    "geometry_location": {
+      "@class": "Geometry",
+      "@type": "Optional"
+    },
+    "postal_code": {
+      "@class": "xsd:string",
+      "@type": "Optional"
+    },
+    "state": "xsd:string",
+    "street": "xsd:string"
+  },
+  {
+    "@id": "Point",
+    "@inherits": "Geometry",
+    "@key": {
+      "@type": "Random"
+    },
+    "@subdocument": [],
+    "@type": "Class",
+    "coordinates": {
+      "@class": "xsd:decimal",
+      "@dimensions": 1,
+      "@type": "Array"
+    },
+    "type": "Point_Type"
   },
   {
     "@id": "Hazard",
@@ -208,144 +114,6 @@
     ]
   },
   {
-    "@documentation": {
-      "@comment": "Historical hazard",
-      "@properties": {
-        "comment": "A comment relating to an historic hazard incident.",
-        "date": "The date at which the incident occurred."
-      }
-    },
-    "@id": "HazardEvent",
-    "@inherits": "Event",
-    "@key": {
-      "@fields": [
-        "hazard",
-        "date"
-      ],
-      "@type": "Lexical"
-    },
-    "@subdocument": [],
-    "@type": "Class",
-    "comment": "xsd:string",
-    "hazard": "Hazard"
-  },
-  {
-    "@id": "GeometryCollection_Type",
-    "@type": "Enum",
-    "@value": [
-      "GeometryCollection"
-    ]
-  },
-  {
-    "@id": "Point",
-    "@inherits": "Geometry",
-    "@key": {
-      "@type": "Random"
-    },
-    "@subdocument": [],
-    "@type": "Class",
-    "coordinates": {
-      "@class": "xsd:decimal",
-      "@dimensions": 1,
-      "@type": "Array"
-    },
-    "type": "Point_Type"
-  },
-  {
-    "@id": "LineString_Type",
-    "@type": "Enum",
-    "@value": [
-      "LineString"
-    ]
-  },
-  {
-    "@id": "Location",
-    "@key": {
-      "@type": "Random"
-    },
-    "@subdocument": [],
-    "@type": "Class",
-    "city": "xsd:string",
-    "geometry_location": {
-      "@class": "Geometry",
-      "@type": "Optional"
-    },
-    "postal_code": {
-      "@class": "xsd:string",
-      "@type": "Optional"
-    },
-    "state": "xsd:string",
-    "street": "xsd:string"
-  },
-  {
-    "@id": "GeoCoordinate",
-    "@key": {
-      "@fields": [
-        "latitude",
-        "longitude"
-      ],
-      "@type": "Lexical"
-    },
-    "@subdocument": [],
-    "@type": "Class",
-    "latitude": "xsd:decimal",
-    "longitude": "xsd:decimal"
-  },
-  {
-    "@abstract": [],
-    "@id": "FundingSource",
-    "@type": "Class"
-  },
-  {
-    "@id": "Feature_Type",
-    "@type": "Enum",
-    "@value": [
-      "Feature"
-    ]
-  },
-  {
-    "@id": "FeatureCollection_Type",
-    "@type": "Enum",
-    "@value": [
-      "FeatureCollection"
-    ]
-  },
-  {
-    "@id": "GeoPerimeter",
-    "@key": {
-      "@fields": [
-        "perimeter"
-      ],
-      "@type": "Lexical"
-    },
-    "@subdocument": [],
-    "@type": "Class",
-    "perimeter": {
-      "@class": "GeoCoordinate",
-      "@type": "List"
-    }
-  },
-  {
-    "@id": "CRS84_Type",
-    "@type": "Enum",
-    "@value": [
-      "urn:ogc:def:crs:OGC:1.3:CRS84"
-    ]
-  },
-  {
-    "@abstract": [],
-    "@id": "AssetType",
-    "@type": "Class",
-    "name": "xsd:string"
-  },
-  {
-    "@id": "Polygon_Type",
-    "@type": "Enum",
-    "@value": [
-      "Polygon"
-    ]
-  },
-  {
     "@id": "Point_Type",
     "@type": "Enum",
     "@value": [
@@ -354,12 +122,11 @@
   },
   {
     "@abstract": [],
-    "@id": "Properties",
-    "@type": "Class"
-  },
-  {
-    "@abstract": [],
-    "@id": "Source",
+    "@id": "Geometry",
+    "@key": {
+      "@type": "Random"
+    },
+    "@subdocument": [],
     "@type": "Class"
   },
   {
@@ -382,12 +149,5 @@
     "@subdocument": [],
     "@type": "Class",
     "comment": "xsd:string"
-  },
-  {
-    "@abstract": [],
-    "@id": "Event",
-    "@subdocument": [],
-    "@type": "Class",
-    "date": "xsd:dateTime"
   }
 ]
