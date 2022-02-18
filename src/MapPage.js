@@ -38,13 +38,14 @@ export const MapPage = () => {
         <Menu/>
         <Container fluid className="p-0 h-100 d-flex">
             <div className="main-content w-100 ml-2 mt-4">
-                <div className="container-fluid" >
+                <div className="container-fluid col-md-6" >
                     <h3 className="mt-5 mb-4 text-warning">{`MAP VIEW`}</h3>
+
                     {
                     showAssets &&
                         <MapViewer
                             documents={showAssets}
-                            zoom={13}
+                            zoom={5}
                             scrollWheelZoom={true}
                         />
                     }
@@ -53,3 +54,13 @@ export const MapPage = () => {
         </Container>
     </React.Fragment>
 }
+
+/*
+{
+                    showAssets &&
+                        <MapViewer
+                            documents={showAssets}
+                            zoom={5}
+                            scrollWheelZoom={true}
+                        />
+                    }*/

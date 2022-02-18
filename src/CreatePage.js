@@ -60,7 +60,8 @@ export const CreatePage = () => {
             <div className="main-content w-100 ml-2 mt-4">
                 <div className="container-fluid" >
                     <h3 className="mt-5 mb-4 text-warning">{`Output - ${TYPE} - CREATE`}</h3>
-                        <FrameViewer
+
+                    <FrameViewer
                             frame={framesInput}
                             uiFrame={uiFrames}
                             type={TYPE}
@@ -71,3 +72,11 @@ export const CreatePage = () => {
         </Container>
     </React.Fragment>
 }
+
+
+/*<FrameViewer
+                            frame={framesInput}
+                            uiFrame={uiFrames}
+                            type={TYPE}
+                            mode={"Create"}
+                            onSubmit={handleSubmit}/>*/

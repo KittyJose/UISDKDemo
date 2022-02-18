@@ -10,7 +10,7 @@ export const Menu = () => {
 		setPage
 	} = WOQLClientObj()
 
-    return <Navbar className={`navbar navbar-expand-lg navbar-dark bg-dark mt-5 mb-3`}>
+    return <Navbar className={`navbar navbar-expand-lg navbar-dark bg-dark mb-3`}>
         <Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

@@ -51,8 +51,9 @@ export const ViewPage = () => {
         <Menu/>
         <Container fluid className="p-0 h-100 d-flex">
             <div className="main-content w-100 ml-2 mt-4">
-                <div className="container-fluid" >
+                <div className="container-fluid col-md-6" >
                     <h3 className="mt-5 mb-4 text-warning">{`Output - ${ASSET_ID} - VIEW`}</h3>
+
                     {
                     assetResult &&
                         <FrameViewer
@@ -64,7 +65,7 @@ export const ViewPage = () => {
                             hideSubmit={true}/>
                     }
 
-                    <h3 className="mt-5 mb-4 text-warning">{`Output - ${ASSET_ID_2} - VIEW`}</h3>
+<h3 className="mt-5 mb-4 text-warning">{`Output - ${ASSET_ID_2} - VIEW`}</h3>
                     {
                     assetResult2 &&
                         <FrameViewer
@@ -75,8 +76,36 @@ export const ViewPage = () => {
                             formData={assetResult2}
                             hideSubmit={true}/>
                     }
+
                 </div>
             </div>
         </Container>
     </React.Fragment>
 }
+
+/*
+ {
+                    assetResult &&
+                        <FrameViewer
+                            frame={framesInput}
+                            type={TYPE}
+                            mode={"View"}
+                            FieldTemplate={CustomFieldTemplate}
+                            formData={assetResult}
+                            hideSubmit={true}/>
+                    }*/
+
+
+/*
+<h3 className="mt-5 mb-4 text-warning">{`Output - ${ASSET_ID_2} - VIEW`}</h3>
+                    {
+                    assetResult2 &&
+                        <FrameViewer
+                            frame={framesInput}
+                            type={TYPE}
+                            mode={"View"}
+                            FieldTemplate={CustomFieldTemplate}
+                            formData={assetResult2}
+                            hideSubmit={true}/>
+                    }
+                    */

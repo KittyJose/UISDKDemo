@@ -9,7 +9,7 @@ div.editor {
 }
 
 form.rjsf > div > fieldset {
-    width: 30% !important;
+    width: 100% !important;
 }
 
 .form-control {
