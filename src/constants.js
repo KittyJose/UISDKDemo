@@ -1,5 +1,5 @@
 // data product name to connect
-export const DATA_PRODUCT="THINGS"
+export const DATA_PRODUCT="CAMSDemo"
 
 //pages
 export const CREATE_PAGE="/"
@@ -18,8 +18,8 @@ export const TYPE="Asset"
 
 
 //View
-export const ASSET_ID="Asset/Portsmouth%20Hospital"
-export const ASSET_ID_2="Asset/Salisbury"
+export const ASSET_ID="Asset/Communication%20tower%20near%20Good%20Hope%20"
+export const ASSET_ID_2="Asset/Petro%20Caribe%20Radio%20Tower"
 
 
 //query variables

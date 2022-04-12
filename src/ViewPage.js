@@ -60,7 +60,7 @@ export const ViewPage = () => {
                             frame={framesInput}
                             type={TYPE}
                             mode={"View"}
-                            FieldTemplate={CustomFieldTemplate}
+                            //FieldTemplate={CustomFieldTemplate}
                             formData={assetResult}
                             hideSubmit={true}/>
                     }
@@ -72,7 +72,7 @@ export const ViewPage = () => {
                             frame={framesInput}
                             type={TYPE}
                             mode={"View"}
-                            FieldTemplate={CustomFieldTemplate}
+                            //FieldTemplate={CustomFieldTemplate}
                             formData={assetResult2}
                             hideSubmit={true}/>
                     }
