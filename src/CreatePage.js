@@ -33,7 +33,7 @@ export const CreatePage = () => {
         <Container fluid className="p-0 h-100 d-flex">
             <div className="side-black ml-2 mt-4 d-flex splits">
                 <Row >
-                    <Card className="m-4 w-100 editor">
+                    <Card className="m-3 w-100 editor">
                         <Card.Header as="h3" className="bg-transparent">Frames</Card.Header>
                         <Card.Body>
                             <textarea
@@ -44,7 +44,7 @@ export const CreatePage = () => {
                         </Card.Body>
                     </Card>
 
-                    <Card className="m-5 w-100 editor">
+                    <Card className="m-3 w-100 editor">
                         <Card.Header as="h3" className="bg-transparent">UI JSON</Card.Header>
                         <Card.Body>
                             <textarea
